@@ -103,15 +103,36 @@ export default class Result {
         }
 
         if(str.rule) {
+            /**
+             *  "type": "String",
+                "name": "result",
+                "rule": "1",
+                "value": "['成功','失败']",
+            *
+            */
             if (str.rule === 1) {
                 return {
                     type: 'string',
                     enum: str.value
                 }
+            } else {
+            /**
+             *  "type": "String",
+                "name": "result",
+                "rule": "1-14",
+                "value": "*",
+            *
+            */
+                let length = str.rule.split('-')
+
+                return {...strObj,
+                    minLength: length[0],
+                    maxLength: length[1] || ''
+                }
             }
         }
 
-        return {...strObj, ...resRule(str)}
+        return strObj
     }
 
     static resRule = (obj) => {
@@ -125,31 +146,5 @@ export default class Result {
     }
 }
 
-
-var resStr=function(str) {
-    var strObj = {
-        type: 'string',
-        mock: {
-            mock:str.value
-        }
-    }
-    // return {...strObj, ...resRule(str)}
-    return Object.assign(strObj, resRule(str))
-}
-
-var resRule = function(obj) {
-    var rules = {}
-    if (obj.rule) {
-        var rule = obj.rule.split('-')
-        rules.minItems = rule[0]
-        rules.maxItems = rule[1]
-    }
-    return rules
-}
-
-console.log(resStr({
-    rule: "1",
-    value: ['成功','失败'],
-}))
 
 
