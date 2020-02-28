@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "mock": {
+                "mock": "success"
+            }
+        },
+        "error": {
+            "type": "null"
+        },
+        "responseData": {
+            "type": "object",
+            "properties": {
+                "totalNum": {
+                    "type": "number",
+                    "mock": {
+                        "mock": "10"
+                    }
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "mock": {
+                                    "mock": "@id"
+                                }
+                            },
+                            "createTime": {
+                                "type": "number",
+                                "mock": {
+                                    "mock": "@integer(1000000000000, 2000000000000)"
+                                }
+                            },
+                            "executor": {
+                                "type": "string",
+                                "enum": [
+                                    "admin",
+                                    "sadmin",
+                                    "audit",
+                                    "administrator",
+                                    "tenant"
+                                ]
+                            },
+                            "eventCategory": {
+                                "type": "number",
+                                "mock": {
+                                    "mock": "@integer(1,11)"
+                                }
+                            },
+                            "eventObject": {
+                                "type": "string",
+                                "enum": [
+                                    "系统登录",
+                                    "用户",
+                                    "个人信息",
+                                    "系统配置",
+                                    "许可证",
+                                    "告警"
+                                ]
+                            },
+                            "eventType": {
+                                "type": "number",
+                                "mock": {
+                                    "mock": "@integer(1,17)"
+                                }
+                            },
+                            "ip": {
+                                "type": "string",
+                                "mock": {
+                                    "mock": "@ip"
+                                }
+                            },
+                            "role": {
+                                "type": "number",
+                                "mock": {
+                                    "mock": "@integer(0,5)"
+                                }
+                            },
+                            "result": {
+                                "type": "number",
+                                "enum": [
+                                    1,
+                                    2
+                                ]
+                            },
+                            "content": {
+                                "type": "string",
+                                "mock": {
+                                    "mock": "用户admin登录成功"
+                                }
+                            }
+                        },
+                        "required": []
+                    },
+                    "minItems": 10,
+                    "maxItems": 30
+                }
+            },
+            "required": []
+        }
+    }
+}
