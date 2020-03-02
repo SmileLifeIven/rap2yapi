@@ -1,1 +1,1 @@
-[{"name":"日志111","list":[{"method":"GET","title":"日志列表111","path":"/logs/user_log","res_body":"{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"totalNum\":{\"type\":\"number\",\"mock\":{\"mock\":10}}}}","res_body_is_json_schema":true,"status":"done"}]}]
+undefined
