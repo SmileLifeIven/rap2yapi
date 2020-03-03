@@ -33,13 +33,19 @@ _defineProperty(Result, "resList", function (list) {
 
   if (_instanceof(list, Array)) {
     list.forEach(function (item) {
+      // if (item.name === 'responseData') {
+        // console.log('--------responseData')
+        // console.log(item)
+        // console.log('+++++++++++++responseData')
+      // }
+
       var method = methods[item.type.toLowerCase()];
       var result = {};
 
       if (!method) {
         result = Result.resNull(item);
       } else {
-        Result[method](item);
+        result = Result[method](item);
       } // const result = Result[method](item)
 
 
@@ -58,9 +64,15 @@ _defineProperty(Result, "resObj", function (obj) {
       children: [...]
    *
    */
+
+   let test = Result.resList(obj.children)
+  // console.log('--------')
+  // console.log(test)
+  // console.log('+++++++++++++')
+
   return {
     type: 'object',
-    properties: Result.resList(obj.children)
+    properties: test
   };
 });
 
@@ -94,12 +106,13 @@ _defineProperty(Result, "resArr", function (arr) {
       "children": [...]
    */
 
+  let test = Result.resList(arr.children)
 
   var arrObj = {
     type: 'array',
     items: {
       type: 'object',
-      properties: Result.resList(arr.children)
+      properties: test
     }
   };
 

@@ -14,13 +14,20 @@ export default class Result {
         let resultObj = {}
 
         if (list instanceof Array) {
+
             list.forEach(item => {
+                if (item.name === 'responseData') {
+                    console.log('----------mountData')
+                    console.log(item)
+                    console.log('++++++++++++++mountData')
+                }
+
                 const method = methods[item.type.toLowerCase()]
                 let result = {}
                 if (!method) {
                     result = Result.resNull(item)
                 } else {
-                    Result[method](item)
+                    result = Result[method](item)
                 }
 
                 // const result = Result[method](item)
@@ -53,8 +60,34 @@ export default class Result {
            "value": "['admin','sadmin','audit','administrator','tenant']",
          */
         let values = []
+        // "['admin','sadmin','audit','administrator','tenant']" => ['admin','sadmin','audit','administrator','tenant']
+
+        // {
+        //     "id": 13073322,
+        //     "scope": "response",
+        //     "type": "Array",
+        //     "pos": 2,
+        //     "name": "items",
+        //     "rule": "",
+        //     "value": "[1, true, 'hello', /\\w{10}/]",
+        //     "description": "自定义数组元素示例",
+        //     "parentId": -1,
+        //     "priority": 1,
+        //     "interfaceId": 1351315,
+        //     "creatorId": 137864,
+        //     "moduleId": 334928,
+        //     "repositoryId": 229842,
+        //     "required": false,
+        //     "createdAt": "2019-11-01T01:34:46.000Z",
+        //     "updatedAt": "2019-11-01T01:34:46.000Z",
+        //     "deletedAt": null
+        // }
         arr.value.replace(/\'(\w|[^\x00-\xff])+\'/g, (...args) => {
-            values.push(args[0].slice(1, args[0].length -1))
+            let value = args[0]
+            if (typeof args[0] === String) {
+                value = args[0].slice(1, args[0].length -1)
+            }
+            values.push(value)
         })
 
         if (arr.value) {
