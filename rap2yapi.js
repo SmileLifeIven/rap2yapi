@@ -51,10 +51,10 @@ const handleRepository = (repository) => {
     return repository.modules.map(moduleObj => handleModule(repository, moduleObj.name))
 }
 
-const result = []
+// const result = []
 // result.push(handleModule(repositoryData, 'cloud'))
-result.push(handleModule(repositoryData, '首页'))
-// const result = handleRepository(repositoryData)
+// result.push(handleModule(repositoryData, '首页'))
+const result = handleRepository(repositoryData)
 
 // http.get('http://rap2.taobao.org:38080/interface/get?id=1426326', (req,res) => {
 //     let result = res
@@ -84,7 +84,7 @@ const resultStr = JSON.stringify(result, (key, value) => {
     return value
 })
 
-fs.writeFile('rap2yapi.json', resultStr,  function(err) {
+fs.writeFile('rap2yapi1.json', resultStr,  function(err) {
    if (err) {
        return console.error(err);
    }
