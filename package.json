@@ -1,0 +1,22 @@
+{
+  "name": "yapi-plugin-import-rap2yapi",
+  "version": "1.0.0",
+  "description": "支持rap2 平台导入yapi平台",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmileLifeIven/rap2yapi.git"
+  },
+  "key": "yapi-plugin",
+  "keywords": [
+    "rap2",
+    "yapi"
+  ],
+  "author": "Iven.Han",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/SmileLifeIven/rap2yapi/issues"
+  },
+  "homepage": "https://github.com/SmileLifeIven/rap2yapi#readme"
+}

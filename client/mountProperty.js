@@ -50,11 +50,6 @@ export default class MountProperty {
             return data
         }
 
-        console.log('--------')
-        console.log(JSON.stringify(repetitionItem))
-        // console.log(parentIndex)
-        console.log('+++++++++++++')
-
         let readyRemoveIndexs = MountProperty.ensureRepetionIndexs(repetitionItem, data)
 
         readyRemoveIndexs.reverse().forEach(item => {
@@ -79,26 +74,6 @@ export default class MountProperty {
         })
 
         return repetitionItem
-        // let targetItem = null
-        // let repetitionItem = null
-
-        // data.some((outItem, index) => {
-        //     let item = data.slice(index + 1).find(item => item.name === outItem.name)
-
-        //     if (item) {
-        //         targetItem = outItem
-        //         repetitionItem = item
-        //         return true
-        //     }
-
-        //     return false
-        // })
-
-        // if (!targetItem) {
-        //     return null
-        // }
-
-        // return targetItem.createdAt > repetitionItem.createdAt ? repetitionItem : targetItem
     }
 
     static ensureRepetionIndexs(repetitionItem, data) {

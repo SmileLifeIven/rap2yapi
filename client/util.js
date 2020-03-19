@@ -30,7 +30,6 @@ export default class Result {
                     result = Result[method](item)
                 }
 
-                // const result = Result[method](item)
                 resultObj[item.name] = result
             });
             return resultObj
