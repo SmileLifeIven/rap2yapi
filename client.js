@@ -29,8 +29,8 @@ function importData(importDataModule) {
     return null;
   }
 
-  importDataModule.json = {
-    name: 'rap',
+  importDataModule.rap2yapi = {
+    name: 'rap2yapi',
     run: run,
     desc: 'YApi接口 json数据导入1'
   };
